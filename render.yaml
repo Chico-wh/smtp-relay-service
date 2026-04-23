@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: allugi-email-relay
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: SMTP_USER
+        sync: false   # preenche manualmente no dashboard do Render
+      - key: SMTP_PASS
+        sync: false
+      - key: API_KEY
+        sync: false
+      - key: DEBUG
+        value: "false"
